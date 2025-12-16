@@ -1,0 +1,673 @@
+/* Базові стилі */
+:root {
+    --primary-color: #0056b3; /* Синій для акцентів */
+    --secondary-color: #003f8e; /* Темніший синій */
+    --text-color: #333;
+    --light-bg: #f8f8f8;
+    --dark-bg: #222;
+    --white: #fff;
+    --gray: #666;
+    --border-color: #ddd;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Шапка сайту (Header) */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Для мобільної версії */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none; /* Приховано на десктопі */
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+
+/* Секція "Про сайт" */
+.about-section {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+}
+
+
+/* Секція Галереї */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+/* Секція "Почніть працювати вже сьогодні" */
+.contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Підвал сайту (Footer) */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 40px 0 20px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* Мінімальна ширина колонки */
+}
+
+.footer-col h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.footer-col p, .footer-col ul {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* ========================================================== */
+/* Адаптивний дизайн (Media Queries) */
+/* ========================================================== */
+
+/* Десктопна версія (більше 992px) */
+@media (min-width: 993px) {
+    .header-content {
+        flex-wrap: nowrap;
+    }
+
+/* Планшетна версія (від 768px до 992px) */
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .news-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Мобільна версія (менше 768px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .news-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Одна колонка на мобільних */
+    }
+
+    .news-item img {
+        height: 180px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    .btn-more-news {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* ========================================================== */
+/* Стилі для поля вводу та кнопки реєстрації (Новий блок) */
+/* ========================================================== */
+
+/* Контейнер для форми (забезпечує розміщення елементів в один рядок) */
+.registration-form-container {
+    max-width: 600px;
+    margin: 40px auto; /* Центрування форми та відступи */
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.registration-form {
+    display: flex;
+    gap: 10px; /* Відстань між полем вводу та кнопкою */
+    align-items: flex-end; /* Вирівнювання елементів по нижньому краю */
+}
+
+/* Приховуємо label, оскільки placeholder достатньо інформативний, 
+   або стилізуємо його акуратніше */
+.registration-form label {
+    display: none; /* Приховати, щоб не порушувати inline-макет */
+}
+
+/* Стилізація поля вводу (Input) */
+.registration-form input[type="email"] {
+    flex-grow: 1; /* Дозволяє полю займати весь доступний простір */
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ефект фокусу на полі */
+.registration-form input[type="email"]:focus {
+    border-color: var(--primary-color); /* Акцентний колір при фокусі */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2); /* Світіння акцентним кольором */
+}
+
+/* Стилізація кнопки (Button) */
+.registration-form button[type="submit"] {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Ефект наведення на кнопку */
+.registration-form button[type="submit"]:hover {
+    background-color: var(--secondary-color); /* Темніший синій при наведенні */
+}
+
+/* Ефект натискання на кнопку */
+.registration-form button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 600px) {
+    .registration-form {
+        flex-direction: column; /* На мобільних: розташовуємо елементи один під одним */
+        align-items: stretch;
+    }
+
+    .registration-form button[type="submit"] {
+        margin-top: 10px; /* Додаємо простір над кнопкою */
+        width: 100%;
+    }
+}
+
+/* ========================================================== */
+/* Стилі для кнопок автентифікації у хедері */
+/* ========================================================== */
+
+.auth-buttons {
+    display: flex; /* Розміщуємо кнопки поруч */
+    gap: 10px;    /* Простір між кнопками */
+    margin-left: 20px; /* Відступ від основного меню */
+    align-items: center;
+}
+
+.auth-buttons .btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-size: 0.95em;
+    white-space: nowrap; /* Запобігає переносу тексту в кнопках */
+}
+
+/* Стиль для кнопки "Увійти" (Прозора/контурна) */
+.btn-login {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-login:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Стиль для кнопки "Зареєструватися" (Акцентна) */
+.btn-register {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color); /* Для однакової висоти з btn-login */
+}
+
+.btn-register:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 992px) {
+    /* ... існуючі стилі ... */
+    
+    .header-content {
+        /* ... існуючі стилі ... */
+        /* Потрібно, щоб auth-buttons не заважали лого та меню-бургеру */
+        position: relative; 
+    }
+    
+    .auth-buttons {
+        /* Перемістити кнопки під основний логотип на мобільних пристроях */
+        order: 3; /* Розмістити їх після logo та menu-toggle у flex-контейнері */
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 0;
+        justify-content: space-around; /* Розтягнути кнопки на всю ширину */
+    }
+    
+    .auth-buttons .btn {
+        flex-grow: 1; /* Зробити кнопки однаковими по ширині */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-buttons {
+        flex-direction: column; /* На дуже вузьких екранах: кнопки одна під одною */
+        gap: 8px;
+    }
+}
+
+/* ========================================================== */
+/* Стилі для сторінок Входу/Реєстрації */
+/* ========================================================== */
+
+.auth-box {
+    max-width: 450px; /* Обмеження ширини форми */
+    margin: 0 auto; /* Центрування на сторінці */
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block; /* Розміщення підпису над полем */
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95em;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.auth-link a {
+    font-weight: 600;
+}
+
+/* Адаптивність для форм */
+@media (max-width: 500px) {
+    .auth-box {
+        margin: 0 15px;
+        padding: 30px 20px;
+    }
+}
+
+/* ========================================================== */
+/* Стилі для сторінки Створення нотатки (create.html) */
+/* ========================================================== */
+
+/* Форма створення нотатки (успадковує input/label стилі з auth-form, але додаємо textarea) */
+.note-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Дозволяє користувачу змінювати лише висоту */
+    font-family: 'Open Sans', sans-serif;
+}
+
+.note-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
+}
+
+/* ДОДАНО: Забезпечення, що поле заголовка (input type="text") отримує стилі */
+.note-form input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+/* ДОДАНО: Стиль фокусу для поля заголовка */
+.note-form input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
+}
+
+/* ========================================================== */
+/* Стилі для сторінки Списку нотаток (list.html) */
+/* ========================================================== */
+
+.notes-grid {
+    display: grid;
+    /* Створення адаптивної сітки з мінімальною шириною картки 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.note-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-color); /* Акцентна лінія */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-3px); /* Легкий ефект підняття */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.note-card p {
+    font-size: 0.95em;
+    color: var(--gray);
+    margin-bottom: 15px;
+    /* Обмеження кількості рядків для попереднього перегляду */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Показати не більше 4 рядків */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.note-meta {
+    display: block;
+    font-size: 0.8em;
+    color: var(--border-color);
+}
