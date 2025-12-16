@@ -1,0 +1,66 @@
+{{> header}}
+
+<main>
+    <section class="hero-section container section-padding">
+        <h1>Ласкаво просимо до нашого сервісу!</h1>
+        <p>Ваше ідеальне місце для організації ідей та завдань.</p>
+    </section>
+
+    <section id="about" class="about-section container section-padding">
+            <h2>Проєкт "Сервіс для нотаток"</h2>
+            <p>Метою нашого порталу є створити надійний, гнучкий та легкодоступний цифровий простір для користувача, допомагаючи йому запам'ятовувати, організовувати та використовувати будь-яку важливу інформацію.</p>
+            <p>Тут користувач матиме можливість ознайомитися з інтерфейсом проєкту, створювати та контролювати свої нотатки для зберігання інформації, структуризації своєї роботи чи просто розкладу дня.</p>
+            <p>Наша місія - сприяти централізованому зберіганню інфрмації, доступності та підвищенню продуктиновсті в загальному.</p>
+        </section>
+
+    <section id="advantages" class="gallery-section container section-padding">
+            <h2>Переваги проєкту</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://glavcom.ua/img/article/9309/37_main-v1685439676.jpg" alt="Галерея 1">
+                    <div class="overlay">Доступність</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://img.telemart.ua/img/news/2439-mini.jpg" alt="Галерея 2">
+                    <div class="overlay">Синхронізація</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://st.depositphotos.com/1160465/1263/i/450/depositphotos_12633181-stock-photo-blank-in-magnifying-glass-screen.jpg" alt="Галерея 3">
+                    <div class="overlay">Швидкий пошук</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://foxminded.ua/wp-content/uploads/2023/11/struktura-dannyh-eto.jpg" alt="Галерея 4">
+                    <div class="overlay">Організація даних</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://znayshov.com/FR/5454/1.jpg" alt="Галерея 5">
+                    <div class="overlay">Мультимедійність</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://protocol.ua/img/consolt/tn1_0_85423100_1536510358_5b954996d0933.jpg" alt="Галерея 6">
+                    <div class="overlay">Спільна робота</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.revealinginformation.com.ua/wp-content/uploads/2021/07/keylock.jpg" alt="Галерея 7">
+                    <div class="overlay">Безпека</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://img.freepik.com/premium-vector/blog-management-icon-3d-illustration-from-digital-marketing-collection-creative-blog-management-3d-icon-web-design-templates-infographics-more_676904-794.jpg" alt="Галерея 8">
+                    <div class="overlay">Продуктивність</div>
+                </div>
+            </div>
+            </section>
+
+    <section id="register-now" class="contacts-section container section-padding">
+        <h1>Не зволікайте!</h1>
+        <p>Зареєструйтеся сьогодні та почніть організовувати свої думки.</p>
+        {{^isLoggedIn}}
+            <a href="/register" class="btn btn-secondary">Зареєструватися</a>
+        {{/isLoggedIn}}
+        {{#isLoggedIn}}
+            <a href="/notes" class="btn btn-secondary">Перейти до нотаток</a>
+        {{/isLoggedIn}}
+    </section>
+</main>
+
+{{> footer}}
