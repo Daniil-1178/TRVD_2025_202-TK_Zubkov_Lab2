@@ -1,0 +1,29 @@
+{{! 1. Вставка шапки (з <head>, навігацією та логікою isAuth/Logout) }}
+{{> header}}
+
+    <section class="auth-box"> 
+        <h2>Створити нову нотатку</h2>
+        
+        {{! Дія форми залишається /notes/create, як у routes/note.js }}
+        <form action="/notes/create" method="POST" class="note-form">
+            
+            <div class="form-group">
+                <label for="note_title">Заголовок нотатки</label>
+                <input type="text" id="note_title" name="title" value="{{title}}" placeholder="Короткий заголовок" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="note_content">Текст нотатки</label>
+                <textarea id="note_content" name="content" rows="15" placeholder="Введіть свій текст, ідеї або список завдань..." required>{{content}}</textarea>
+            </div>
+            
+            {{#errorMessage}}
+                <p class="error-message">{{errorMessage}}</p>
+            {{/errorMessage}}
+            
+            <button type="submit" class="auth-button">Зберегти нотатку</button>
+        </form>
+    </section>
+
+{{! 2. Вставка підвалу (закриття <main>, <footer> та </body></html>) }}
+{{> footer}}
