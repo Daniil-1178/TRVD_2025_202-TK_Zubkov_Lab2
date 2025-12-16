@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}} | Сервіс для нотаток</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69Fwj99WJXjBQDCclk1og9MAoF_NFTWiDww&s.jpg" alt="Логотип Сервісу нотаток">
+                        <h1>Сервіс для нотаток</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                    <ul class="nav-list">
+                        <li><a href="/">Головна</a></li>
+                        {{#isLoggedIn}}
+                            <li><a href="/notes/create">Створити нотатку</a></li>
+                            <li><a href="/notes">Список нотаток</a></li>
+                        {{/isLoggedIn}}
+                        {{! Можна додати інші загальні посилання тут }}
+                    </ul>
+                </nav>
+                   
+                <div class="auth-buttons">
+                    {{! ЛОГІКА СЕСІЇ: Показуємо вхід/реєстрацію, якщо НЕ увійшов }}
+                    {{^isLoggedIn}}
+                        <a href="/login" class="btn btn-login">Увійти</a>
+                        <a href="/register" class="btn btn-register">Зареєструватися</a>
+                    {{/isLoggedIn}}
+                    
+                    {{! ЛОГІКА СЕСІЇ: Показуємо кнопку ВИЙТИ, якщо увійшов }}
+                    {{#isLoggedIn}}
+                         <form action="/logout" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-logout">Вийти</button>
+                        </form>
+                    {{/isLoggedIn}}
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
