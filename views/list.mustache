@@ -1,0 +1,50 @@
+{{! 1. Вставка шапки (header) }}
+{{> header}}
+
+    <main class="container section-padding">
+        <h2>Мої нотатки</h2>
+        
+        {{! ------------------------------------------------------------- }}
+        {{! ЛОГІКА ДЛЯ ВІДОБРАЖЕННЯ СПИСКУ НОТАТОК }}
+        {{! ------------------------------------------------------------- }}
+        
+        {{#hasNotes}}
+        <div class="notes-grid">
+            {{! Цикл по масиву 'notes', який передається контролером }}
+            {{#notes}}
+            <div class="note-card">
+                <h3>{{title}}</h3>
+                {{! Відображаємо перші 150 символів вмісту }}
+                <p>{{content}}...</p>
+                
+                <div class="note-actions">
+                    {{! Посилання на редагування (ми додамо маршрут пізніше) }}
+                    <a href="/notes/edit/{{_id}}" class="btn btn-edit">Редагувати</a>
+                    
+                    {{! Форма для видалення (використовуємо POST-запит для безпеки) }}
+                    <form action="/notes/delete/{{_id}}" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-delete">Видалити</button>
+                    </form>
+                </div>
+                <small class="note-date">Створено: {{createdAt}}</small>
+            </div>
+            {{/notes}}
+        </div>
+        {{/hasNotes}}
+        
+        {{! ------------------------------------------------------------- }}
+        {{! СТАН, ЯКЩО НОТАТОК НЕМАЄ (Empty State) }}
+        {{! ------------------------------------------------------------- }}
+        {{^hasNotes}}
+            <div class="note-card empty-state">
+                <h3>Тут з'являться ваші нотатки</h3>
+                <p>Створіть свою першу нотатку, натиснувши на кнопку нижче.</p>
+            </div>
+        {{/hasNotes}}
+        
+        {{! Кнопка для створення нової нотатки }}
+        <a href="/notes/create" class="btn-more-news" style="width: auto;">+ Створити нову нотатку</a>
+    </main>
+
+{{! 2. Вставка підвалу (footer) }}
+{{> footer}}
