@@ -1,0 +1,39 @@
+{{! Вставка шапки }}
+{{> header}}
+
+<div class="container auth-form-container">
+    <h2>Реєстрація</h2>
+
+    {{! Відображення помилок, якщо вони є }}
+    {{#errorMessage}}
+        <div class="alert alert-error">{{errorMessage}}</div>
+    {{/errorMessage}}
+
+    {{! Форма реєстрації }}
+    <form action="/register" method="POST" class="auth-form">
+        <div class="form-group">
+            <label for="username">Ім'я користувача</label>
+            {{! name="username" - КРИТИЧНО! Має відповідати req.body.username }}
+            <input type="text" id="username" name="username" value="{{username}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            {{! name="email" - КРИТИЧНО! Має відповідати req.body.email }}
+            <input type="email" id="email" name="email" value="{{email}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            {{! name="password" - КРИТИЧНО! Має відповідати req.body.password }}
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn auth-button">Зареєструватися</button>
+    </form>
+
+    <p class="auth-link">Вже маєте акаунт? <a href="/login">Увійти</a></p>
+</div>
+
+{{! Вставка підвалу }}
+{{> footer}}
